@@ -69,8 +69,20 @@ const SpaceSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "user" },
 });
 
-const SpaceModal = mongoose.model("space", SpaceSchema);
+const SpaceModel = mongoose.model("space", SpaceSchema);
+
+const CommentSchema = new Schema({
+  body: {
+    type: String,
+    required: true,
+  },
+  stories: [{ type: Schema.Types.ObjectId, ref: "story" }],
+  user: { type: Schema.Types.ObjectId, ref: "user" },
+});
+
+const CommentModel = mongoose.model("comment", CommentSchema);
 
 module.exports = UserModel;
 module.exports = StoryModel;
-module.exports = SpaceModal;
+module.exports = SpaceModel;
+module.exports = CommentModel;
