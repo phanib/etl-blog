@@ -36,4 +36,24 @@ UserSchema.methods.isValidPassword = async function (password) {
 
 const UserModel = mongoose.model("user", UserSchema);
 
+const PostSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+
+  description: {
+    type: String,
+  },
+
+  body: {
+    type: String,
+    required: true,
+  },
+});
+
+const PostModal = mongoose.model("post", PostSchema);
+
 module.exports = UserModel;
+module.exports = PostModal;
