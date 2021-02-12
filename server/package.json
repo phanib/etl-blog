@@ -1,0 +1,18 @@
+{
+  "name": "etl-blog",
+  "version": "0.1.0",
+  "description": "A collaborative blog for Enterprise Technology Labs team",
+  "author": "Phaneendra Brahmadevara",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.15",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1"
+  },
+  "devDependencies": {}
+}
