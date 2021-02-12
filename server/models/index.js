@@ -36,7 +36,7 @@ UserSchema.methods.isValidPassword = async function (password) {
 
 const UserModel = mongoose.model("user", UserSchema);
 
-const PostSchema = new Schema({
+const StorySchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -53,7 +53,24 @@ const PostSchema = new Schema({
   },
 });
 
-const PostModal = mongoose.model("post", PostSchema);
+const StoryModel = mongoose.model("story", StorySchema);
+
+const SpaceSchema = new Schema({
+  spaceId: {
+    type: String,
+    required: true,
+  },
+
+  name: {
+    type: String,
+    required: true,
+  },
+  stories: [{ type: Schema.Types.ObjectId, ref: "story" }],
+  user: { type: Schema.Types.ObjectId, ref: "user" },
+});
+
+const SpaceModal = mongoose.model("space", SpaceSchema);
 
 module.exports = UserModel;
-module.exports = PostModal;
+module.exports = StoryModel;
+module.exports = SpaceModal;
