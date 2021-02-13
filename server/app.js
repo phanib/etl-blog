@@ -24,7 +24,7 @@ connection.once("open", function () {
 });
 
 app.use("/", routes);
-app.use("/space/:slug/", storyRouter);
+app.use("/story", storyRouter);
 app.use("/space", spaceRouter);
 
 app.use(

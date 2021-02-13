@@ -2,11 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const SpaceSchema = new Schema({
-  slug: {
-    type: String,
-    unique: true,
-    required: true,
-  },
+  _id: { type: String },
 
   name: {
     type: String,
@@ -14,6 +10,10 @@ const SpaceSchema = new Schema({
   },
   stories: [{ type: Schema.Types.ObjectId, ref: "story" }],
   user: { type: Schema.Types.ObjectId, ref: "user" },
+});
+
+SpaceSchema.virtual("slug").get(function () {
+  return this._id;
 });
 
 const SpaceModel = mongoose.model("space", SpaceSchema);

@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Helmet } from "react-helmet";
+import { ThemeProvider } from "styled-components";
 
-function App() {
+import { config } from "./config";
+import Router from "./Router";
+import Toggle from "./Components/Theme/Toggler";
+import { GlobalStyles } from "./Components/Theme/GlobalStyles";
+import { lightTheme, darkTheme } from "./Components/Theme/Theme";
+import { useDarkMode } from "./Components/Theme/useDarkMode";
+/**
+ * INHERITED FROM https://github.com/saadpasta/react-blog-github
+ *
+ * MODIFICATIONS:
+ * 1. Removed Apollo Graphql client
+ * 2. Adjusted themeing Provider
+ */
+const Application = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const [theme, themeToggler] = useDarkMode();
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Helmet>
+        <title>{config.title}</title>
+        <meta charSet="utf-8" />
+        <meta name="description" content={config.subtitle} />
+        <meta name="theme-color" content={config.header.backgroundColor} />
+      </Helmet>
+      <ThemeProvider theme={themeMode} toggleTheme={themeToggler}>
+        <GlobalStyles />
+        <Router />
+        <Toggle theme={theme} toggleTheme={themeToggler} />
+      </ThemeProvider>
+    </>
   );
-}
+};
 
-export default App;
+export default Application;
