@@ -16,6 +16,8 @@ const StorySchema = new Schema({
     type: String,
     required: true,
   },
+  user: { type: Schema.Types.ObjectId, ref: "user" },
+  user: { type: Schema.Types.ObjectId, ref: "space" },
 });
 
 const StoryModel = mongoose.model("story", StorySchema);

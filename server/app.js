@@ -7,7 +7,7 @@ const UserModel = require("./models");
 
 const storyRouter = require("./routes/story");
 const spaceRouter = require("./routes/space");
-
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const uri = "mongodb://localhost:27017/blog";

@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const SpaceSchema = new Schema({
-  spaceId: {
+  slug: {
     type: String,
+    unique: true,
     required: true,
   },
 
