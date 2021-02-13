@@ -5,6 +5,9 @@ const bodyParser = require("body-parser");
 const app = express();
 const UserModel = require("./models");
 
+const storyRouter = require("./routes/story");
+const spaceRouter = require("./routes/space");
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const uri = "mongodb://localhost:27017/blog";
@@ -21,6 +24,9 @@ connection.once("open", function () {
 });
 
 app.use("/", routes);
+app.use("/space/:name/story", storyRouter);
+app.use("/space", spaceRouter);
+
 app.use(
   "/user",
   passport.authenticate("jwt", { session: false }),
@@ -31,6 +37,6 @@ app.use(function (err, req, res, next) {
   res.json({ error: err });
 });
 
-app.listen(3000, () => {
-  console.log("Server started at 3000 port");
+app.listen(1447, () => {
+  console.log("Server started at 1447 port");
 });
