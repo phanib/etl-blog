@@ -1,6 +1,6 @@
 const passport = require("passport");
 const localStrategy = require("passport-local").Strategy;
-const UserModel = require("../models");
+const UserModel = require("../models/user");
 const JWTstrategy = require("passport-jwt").Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
 /**
@@ -26,6 +26,7 @@ passport.use(
     }
   )
 );
+
 /**
  * Configure middleware to valid the login of the user
  */

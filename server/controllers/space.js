@@ -1,17 +1,14 @@
 var Space = require("../models/space");
 
-exports.listSpaces = exports.book_list = function (req, res, next) {
-  Space.find({}).exec(function (err, listSpaces) {
-    if (err) {
-      return next(err);
-    }
-    //Successful, so render
-    res.status(200).json(listSpaces);
-  });
-};
-
+/**
+ * Fetches data for a specific space with stories attached
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 exports.detailSpace = function (req, res, next) {
   const slug = req.params.slug;
+
   Space.find({ _id: slug })
     .populate("stories")
     .exec(function (err, space) {
@@ -23,6 +20,12 @@ exports.detailSpace = function (req, res, next) {
     });
 };
 
+/**
+ * Creates a new space
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 exports.createSpace = function (req, res, next) {
   const slug = req.body.slug;
   const name = req.body.name;

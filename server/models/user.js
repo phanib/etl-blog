@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
 
+/**
+ * User Mongoose schema
+ */
 const UserSchema = new Schema({
   email: {
     type: String,
@@ -15,6 +18,9 @@ const UserSchema = new Schema({
   },
 });
 
+/**
+ * Pre save - Encrypt the password
+ */
 UserSchema.pre("save", async function (next) {
   const user = this;
   const hash = await bcrypt.hash(this.password, 10);

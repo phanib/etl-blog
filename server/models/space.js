@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+/**
+ * Space Schema
+ */
 const SpaceSchema = new Schema({
   _id: { type: String },
 

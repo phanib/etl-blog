@@ -1,12 +1,15 @@
 import React from "react";
 import moment from "moment";
-
 import { PostDate } from "../";
-import { AuthorAvatar, AuthorDetails, AuthorName } from "../Author";
+import { AuthorDetails, AuthorName } from "../Author";
 import { CommentContainer } from "./";
 
-import { HyperLink, CodeBlock } from "../../Markdown/Overrides";
-
+/**
+ * INHERITED FROM https://github.com/saadpasta/react-blog-github
+ *
+ * MODIFICATIONS:
+ * 1. Updated to reflect comments model on backend
+ */
 export const Comment = ({ comment }) => {
   return (
     <CommentContainer>

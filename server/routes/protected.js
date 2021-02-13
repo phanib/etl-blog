@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
-
+/**
+ * Example Protected Route
+ */
 router.get("/test", (req, res, next) => {
   res.json({
     message: "This is a protected route",
