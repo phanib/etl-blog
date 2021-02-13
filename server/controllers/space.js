@@ -11,8 +11,8 @@ exports.listSpaces = exports.book_list = function (req, res, next) {
 };
 
 exports.detailSpace = function (req, res, next) {
-  const spaceId = req.params.id;
-  Space.findById(spaceId).exec(function (err, space) {
+  const slug = req.params.slug;
+  Space.find({ slug: slug }).exec(function (err, space) {
     if (err) {
       return next(err);
     }

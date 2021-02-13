@@ -7,7 +7,11 @@ const StorySchema = new Schema({
     required: true,
     unique: true,
   },
-
+  slug: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   description: {
     type: String,
   },
@@ -17,7 +21,7 @@ const StorySchema = new Schema({
     required: true,
   },
   user: { type: Schema.Types.ObjectId, ref: "user" },
-  user: { type: Schema.Types.ObjectId, ref: "space" },
+  space: { type: Schema.Types.ObjectId, ref: "space" },
 });
 
 const StoryModel = mongoose.model("story", StorySchema);

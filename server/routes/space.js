@@ -4,7 +4,7 @@ const router = express.Router();
 const spaceController = require("../controllers/space");
 
 router.post("/create", spaceController.createSpace);
-router.get("/:id", spaceController.detailSpace);
+router.get("/:slug", spaceController.detailSpace);
 router.get("/", spaceController.listSpaces);
 
 module.exports = router;

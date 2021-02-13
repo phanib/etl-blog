@@ -5,8 +5,9 @@ exports.listStories = function (req, res) {
 };
 
 exports.detailStory = function (req, res, next) {
-  const storyId = req.params.id;
-  Story.findById(storyId).exec(function (err, space) {
+  const storySlug = req.params.storySlug;
+
+  Story.find({ slug: storySlug }).exec(function (err, space) {
     if (err) {
       return next(err);
     }
