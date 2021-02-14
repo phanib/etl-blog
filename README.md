@@ -5,6 +5,12 @@
 
 # Screenshots
 
+![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/login.png?raw=true)
+
+![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/home.png?raw=true)
+
+![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/LoggedIn.png?raw=true)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
