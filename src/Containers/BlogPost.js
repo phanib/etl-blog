@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
-import readingTime from "reading-time";
-import { config } from "../config";
 import axios from "axios";
 import { Loader } from "../Components/Common";
 import {
@@ -37,7 +35,7 @@ function BlogHome() {
     }
 
     fetchData();
-  }, []);
+  }, [id]);
 
   if (loading) {
     return <Loader />;

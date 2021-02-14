@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { Login } from "../Components/Login";
-import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { Loader } from "../Components/Common";
 
 const Button = styled.button`
   -webkit-appearance: none;
@@ -58,6 +58,10 @@ export default function LoginContainer() {
 
   if (token) {
     history.push("/");
+  }
+
+  if (loading) {
+    return <Loader />;
   }
 
   return (

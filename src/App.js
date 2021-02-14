@@ -1,7 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
-
 import { config } from "./config";
 import Router from "./Router";
 import Toggle from "./Components/Theme/Toggler";
@@ -16,7 +15,6 @@ import { useDarkMode } from "./Components/Theme/useDarkMode";
  * 2. Adjusted themeing Provider
  */
 const Application = () => {
-  const urlParams = new URLSearchParams(window.location.search);
   const [theme, themeToggler] = useDarkMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 

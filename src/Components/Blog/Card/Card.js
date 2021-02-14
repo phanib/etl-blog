@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 
 import { CardContainer, CardTitle, CardDescription } from "./";
@@ -8,7 +8,7 @@ export const Card = ({ blog }) => {
 
   const nameToSlug = blog.title?.split(" ").join("-");
 
-  const openBlog = (title, number) => {
+  const openBlog = () => {
     history.push(`/story/${nameToSlug}/${blog._id}`);
   };
 

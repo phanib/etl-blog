@@ -1,3 +1,10 @@
+# References
+
+- https://reactjs.org/docs/create-a-new-react-app.html
+- https://styled-components.com/
+
+# Screenshots
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -5,6 +12,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `cd server && yarn start`
+
+Runs the app in the development mode.\
+Open [http://localhost:1447](http://localhost:1447) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
 ### `yarn start`
 
