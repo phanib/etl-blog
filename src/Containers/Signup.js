@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { Login } from "../Components/Login";
+import { Login as Signup } from "../Components/Login";
 import { useHistory } from "react-router-dom";
 import { Loader } from "../Components/Common";
 
@@ -26,25 +26,22 @@ const Button = styled.button`
   }
 `;
 
-export default function LoginContainer() {
+export default function SignupContainer() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const token = localStorage.getItem("blogToken");
   const history = useHistory();
 
   const onSubmit = async () => {
-    debugger;
     setLoading(true);
-    const result = await axios.post("/login", {
+    const result = await axios.post("/signup", {
       email: username,
       password: password,
     });
 
     if (result) {
-      localStorage.setItem("blogToken", result?.data?.token);
-      localStorage.setItem("blogUser", result?.data?.email);
       setLoading(false);
+      history.push("/");
     }
   };
 
@@ -56,17 +53,13 @@ export default function LoginContainer() {
     setPassword(event.target.value);
   };
 
-  if (token) {
-    history.push("/");
-  }
-
   if (loading) {
     return <Loader />;
   }
 
   return (
-    <Login>
-      <h1>Please Log In</h1>
+    <Signup>
+      <h1>Create a new account</h1>
       <form onSubmit={onSubmit}>
         <label>
           <p>Email</p>
@@ -80,6 +73,6 @@ export default function LoginContainer() {
           <Button type="submit">Submit</Button>
         </div>
       </form>
-    </Login>
+    </Signup>
   );
 }

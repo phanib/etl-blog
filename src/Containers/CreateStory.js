@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { Login } from "../Components/Login";
+import { Login as Post } from "../Components/Login";
 import { useHistory } from "react-router-dom";
 import { Loader } from "../Components/Common";
 
@@ -27,36 +27,34 @@ const Button = styled.button`
 `;
 
 export default function LoginContainer() {
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("blogToken");
   const history = useHistory();
 
   const onSubmit = async () => {
-    debugger;
     setLoading(true);
-    const result = await axios.post("/login", {
-      email: username,
-      password: password,
+    const result = await axios.post("/story/create", {
+      title: title,
+      body: body,
+      slug: "phantastic",
     });
 
     if (result) {
-      localStorage.setItem("blogToken", result?.data?.token);
-      localStorage.setItem("blogUser", result?.data?.email);
-      setLoading(false);
+      history.push("/");
     }
   };
 
-  const handleUserName = (event) => {
-    setUserName(event.target.value);
+  const handleTitle = (event) => {
+    setTitle(event.target.value);
   };
 
-  const handlePassword = (event) => {
-    setPassword(event.target.value);
+  const handleBody = (event) => {
+    setBody(event.target.value);
   };
 
-  if (token) {
+  if (!token) {
     history.push("/");
   }
 
@@ -65,21 +63,27 @@ export default function LoginContainer() {
   }
 
   return (
-    <Login>
-      <h1>Please Log In</h1>
+    <Post>
+      <h1>Write your new story</h1>
       <form onSubmit={onSubmit}>
         <label>
-          <p>Email</p>
-          <input type="text" value={username} onChange={handleUserName} />
+          <p>Title</p>
+          <input type="text" value={title} onChange={handleTitle} />
         </label>
         <label>
-          <p>Password</p>
-          <input type="password" value={password} onChange={handlePassword} />
+          <p>Body</p>
+          <textarea
+            rows="10"
+            columns="10"
+            type="textarea"
+            value={body}
+            onChange={handleBody}
+          />
         </label>
         <div>
           <Button type="submit">Submit</Button>
         </div>
       </form>
-    </Login>
+    </Post>
   );
 }

@@ -24,6 +24,7 @@ const Button = styled.button`
     rgb(92, 168, 65) 100%
   );
   color: #fff;
+  margin: 10px;
   border: none;
   padding: 8px 16px;
   font-size: 16px;
@@ -50,6 +51,14 @@ export const BlogLogin = ({ isAbsolute }) => {
     history.push("/login");
   };
 
+  const onSignup = async () => {
+    history.push("/signup");
+  };
+
+  const onCreateStory = async () => {
+    history.push("/story/create");
+  };
+
   const onLogout = async () => {
     localStorage.removeItem("blogToken");
     localStorage.removeItem("blogUser");
@@ -59,11 +68,15 @@ export const BlogLogin = ({ isAbsolute }) => {
   return (
     <ButtonContainer absolute={isAbsolute}>
       {!isLoggedIn ? (
-        <Button onClick={onLogin}>Log in</Button>
+        <>
+          <Button onClick={onSignup}>Signup</Button>
+          <Button onClick={onLogin}>Log in</Button>
+        </>
       ) : (
         <Text>
           Logged in as {localStorage.getItem("blogUser")}{" "}
           <Button onClick={onLogout}>Log Out</Button>
+          <Button onClick={onCreateStory}>Create Story</Button>
         </Text>
       )}
     </ButtonContainer>
