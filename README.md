@@ -1,8 +1,15 @@
 # Pre-reqs / Installations
 
 - Mongo datastore
+
   - Install from https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
   - Create a db called `blog`
+
+- Install Deps
+  - In the project folder, install npm packages
+    - `yarn install`
+  - In the server folder, install npm packages
+    - `cd server && yarn install`
 
 # Steps to Run
 
@@ -17,6 +24,9 @@
 - https://styled-components.com/
 
 # Screenshots
+
+![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/Space%20Home.png?raw=true)
+![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/All%20spaces.png?raw=true)
 
 ![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/login.png?raw=true)
 
