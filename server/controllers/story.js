@@ -10,15 +10,13 @@ var Space = require("../models/space");
 exports.detailStory = function (req, res, next) {
   const storyId = req.params.id;
 
-  Story.findById(storyId)
-    .populate("comments")
-    .exec(function (err, space) {
-      if (err) {
-        return next(err);
-      }
-      //Successful, so render
-      res.status(200).json(space);
-    });
+  Story.findById(storyId).exec(function (err, space) {
+    if (err) {
+      return next(err);
+    }
+    //Successful, so render
+    res.status(200).json(space);
+  });
 };
 
 /**

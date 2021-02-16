@@ -1,3 +1,16 @@
+# Pre-reqs / Installations
+
+- Mongo datastore
+  - Install from https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+  - Create a db called `blog`
+
+# Steps to Run
+
+- Run the UI
+  - `yarn start`
+- Run the server
+  - `cd server` && `yarn start`
+
 # References
 
 - https://reactjs.org/docs/create-a-new-react-app.html
@@ -11,7 +24,7 @@
 
 ![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/LoggedIn.png?raw=true)
 
-# Getting Started with Create React App
+# Getting Started with the Project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -34,7 +34,6 @@ export default function LoginContainer() {
   const history = useHistory();
 
   const onSubmit = async () => {
-    debugger;
     setLoading(true);
     const result = await axios.post("/login", {
       email: username,
