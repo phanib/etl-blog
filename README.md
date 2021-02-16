@@ -22,14 +22,15 @@
 
 - https://reactjs.org/docs/create-a-new-react-app.html
 - https://styled-components.com/
+- https://github.com/saadpasta/react-blog-github
 
 # Screenshots
 
 ![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/Space%20Home.png?raw=true)
 ![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/All%20spaces.png?raw=true)
-
+![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/Createspace.png?raw=true)
 ![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/login.png?raw=true)
-
+![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/new%20story.png?raw=true)
 ![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/home.png?raw=true)
 
 ![Login](https://github.com/phanib/etl-blog/blob/main/screenshots/LoggedIn.png?raw=true)
