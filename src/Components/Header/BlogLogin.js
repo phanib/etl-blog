@@ -46,6 +46,7 @@ const Text = styled.span`
 export const BlogLogin = ({ isAbsolute }) => {
   const history = useHistory();
   const isLoggedIn = localStorage.getItem("blogToken") || false;
+  const id = window.location.href.split("/").pop();
 
   const onLogin = async () => {
     history.push("/login");
@@ -56,7 +57,11 @@ export const BlogLogin = ({ isAbsolute }) => {
   };
 
   const onCreateStory = async () => {
-    history.push("/story/create");
+    history.push(`/story/create/${id}`);
+  };
+
+  const onHome = async () => {
+    history.push("/");
   };
 
   const onLogout = async () => {
@@ -69,14 +74,16 @@ export const BlogLogin = ({ isAbsolute }) => {
     <ButtonContainer absolute={isAbsolute}>
       {!isLoggedIn ? (
         <>
+          <Button onClick={onHome}>Home</Button>
           <Button onClick={onSignup}>Signup</Button>
           <Button onClick={onLogin}>Log in</Button>
         </>
       ) : (
         <Text>
           Logged in as {localStorage.getItem("blogUser")}{" "}
-          <Button onClick={onLogout}>Log Out</Button>
+          <Button onClick={onHome}>Home</Button>
           <Button onClick={onCreateStory}>Create Story</Button>
+          <Button onClick={onLogout}>Log Out</Button>
         </Text>
       )}
     </ButtonContainer>

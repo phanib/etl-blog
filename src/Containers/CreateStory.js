@@ -26,23 +26,24 @@ const Button = styled.button`
   }
 `;
 
-export default function LoginContainer() {
+export default function CreateStory() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("blogToken");
   const history = useHistory();
+  const id = window.location.href.split("/").pop();
 
   const onSubmit = async () => {
     setLoading(true);
     const result = await axios.post("/story/create", {
       title: title,
       body: body,
-      slug: "phantastic",
+      slug: id,
     });
 
     if (result) {
-      history.push("/");
+      history.push(`/space/${id}`);
     }
   };
 

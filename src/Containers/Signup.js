@@ -41,6 +41,7 @@ export default function SignupContainer() {
 
     if (result) {
       setLoading(false);
+      alert("Created Accout, please login");
       history.push("/");
     }
   };

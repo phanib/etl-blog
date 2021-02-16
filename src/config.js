@@ -9,10 +9,10 @@ export const config = {
   // Your Github Converted Token To Know How To Get Your Token Look at Readme.md
 
   // Your Personal Blog Title
-  title: "Photographers Wall",
+  title: "My Space",
 
   // Your Personal Blog Subtitle
-  subtitle: "Experience like never before",
+  subtitle: "",
 
   // Header customization
   header: {

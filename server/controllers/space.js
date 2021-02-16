@@ -21,6 +21,22 @@ exports.detailSpace = function (req, res, next) {
 };
 
 /**
+ * Lists all spaces
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+exports.listSpaces = function (req, res, next) {
+  Space.find({}).exec(function (err, space) {
+    if (err) {
+      return next(err);
+    }
+    //Successful, so render
+    res.status(200).json(space);
+  });
+};
+
+/**
  * Creates a new space
  * @param {*} req
  * @param {*} res

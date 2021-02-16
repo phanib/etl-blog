@@ -4,27 +4,7 @@ import styled from "styled-components";
 import { Login } from "../Components/Login";
 import { useHistory } from "react-router-dom";
 import { Loader } from "../Components/Common";
-
-const Button = styled.button`
-  -webkit-appearance: none;
-  background: linear-gradient(
-    180deg,
-    rgb(136, 220, 109) 0%,
-    rgb(92, 168, 65) 100%
-  );
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s;
-  outline: 0;
-
-  :hover {
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
-  }
-`;
+import { Button } from "../Components/Common/Button";
 
 export default function LoginContainer() {
   const [username, setUserName] = useState("");

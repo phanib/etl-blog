@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const CardContainer = styled.div`
   cursor: pointer;
@@ -8,7 +8,6 @@ export const CardContainer = styled.div`
   transition: 0.2s;
   position: relative;
 
-  :hover {
-    background-color: ${props => props.theme.mode === 'light' ? '#F5F5F5' : '#3B4252'};
-  }
-`
+  background-color: ${(props) =>
+    props.theme.mode === "light" ? "#F5F5F5" : "#3B4252"};
+`;

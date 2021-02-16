@@ -18,7 +18,8 @@ const Blog = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const result = await axios("/space/phantastic");
+      const id = window.location.href.split("/").pop();
+      const result = await axios(`/space/${id}`);
 
       if (result) {
         setPosts(result?.data[0]?.stories);
@@ -37,9 +38,10 @@ const Blog = () => {
     <>
       <Header />
       <BlogContainer>
-        {!posts.length ? (
-          <Loader />
+        {posts && !posts.length ? (
+          <div> No posts on this space</div>
         ) : (
+          posts &&
           posts.map((v, i) => {
             return <Card blog={v} key={i} />;
           })

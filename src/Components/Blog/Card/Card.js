@@ -16,7 +16,7 @@ export const Card = ({ blog }) => {
     <CardContainer>
       <div onClick={() => openBlog(blog.title, blog.number)}>
         <CardTitle>{blog.title}</CardTitle>
-        <CardDescription>{blog.body}</CardDescription>
+        <CardDescription>{blog.body && blog.body}</CardDescription>
       </div>
     </CardContainer>
   );
