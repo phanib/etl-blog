@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-
+import { DispatchContext, StateContext } from "../../Contexts/index";
 /**
  * INHERITED FROM https://github.com/saadpasta/react-blog-github
  *
@@ -47,6 +47,8 @@ export const BlogLogin = ({ isAbsolute }) => {
   const history = useHistory();
   const isLoggedIn = localStorage.getItem("blogToken") || false;
   const id = window.location.href.split("/").pop();
+  const state = useContext(StateContext);
+  const dispatch = useContext(DispatchContext);
 
   const onLogin = async () => {
     history.push("/login");
@@ -69,11 +71,12 @@ export const BlogLogin = ({ isAbsolute }) => {
     localStorage.removeItem("blogUser");
     history.push("/");
   };
-
+  debugger;
   return (
     <ButtonContainer absolute={isAbsolute}>
       {!isLoggedIn ? (
         <>
+          {`current state is ${state.email}`}
           <Button onClick={onHome}>Home</Button>
           <Button onClick={onSignup}>Signup</Button>
           <Button onClick={onLogin}>Log in</Button>

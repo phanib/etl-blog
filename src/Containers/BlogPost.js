@@ -75,4 +75,4 @@ function BlogHome() {
   );
 }
 
-export default React.memo(BlogHome);
+export default BlogHome;
